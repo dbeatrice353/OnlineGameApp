@@ -12,6 +12,7 @@
   <tbody>
     <% @attempts.each do |attempt| %>
       <tr>
+        <td><%= attempt.score %></td>
         <td><%= link_to 'Show', attempt %></td>
         <td><%= link_to 'Edit', edit_attempt_path(attempt) %></td>
         <td><%= link_to 'Destroy', attempt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
