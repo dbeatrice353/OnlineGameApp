@@ -4,4 +4,16 @@ class User < ActiveRecord::Base
   has_many :attempts
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def user_name
+  	self.email.split('@').first
+  end
+
+  def max_score
+  	self.attempts.maximum(:score)
+  end
+
+  def attempt_count
+  	self.attempts.length
+  end
 end
