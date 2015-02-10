@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def attempt_count
   	self.attempts.length
   end
+
+  def mean_score
+  	self.attempts.average(:score).to_f.round(2)
+  end
 end
