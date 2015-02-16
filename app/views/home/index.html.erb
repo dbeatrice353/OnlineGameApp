@@ -5,13 +5,16 @@
   </head>
   <br>
   <body>
+    <div id="canvasContainer">
+      <canvas id = "mainCanvas" width="640" height="440"></canvas>
+    <div>
+    <script>main();</script>
+    <br>
     <% if user_signed_in? %>
       <%= render "current_player_stats" %>
     <% end %>
-    <%= link_to "Create a new Attempt", new_attempt_path %>
-    <br><br>
     <h>Global Stats</h>
-    <table class="table">
+    <table id="globalStatsTable" class="table">
       <thead>
         <tr>
           <th colspan="3"></th>
@@ -24,11 +27,7 @@
       </thead>
       <tbody>
         <% @users.each do |user| %>
-          <tr>
-            <td><%= user.user_name %></td>
-            <td><%= user.max_score %></td>
-            <td><%= user.attempt_count %></td>
-          </tr>
+          <%= render "global_stats_row", :user => user %>
         <% end %>
       </tbody>
     </table>

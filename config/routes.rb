@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'home#index'
+  get 'current_user_stats(.:format)' => 'home#current_user_stats'
   devise_for :users
   resources :attempts
   

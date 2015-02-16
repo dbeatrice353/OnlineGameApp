@@ -10,6 +10,7 @@ class AttemptsController < ApplicationController
   # GET /attempts/1
   # GET /attempts/1.json
   def show
+    @current_user = current_user
   end
 
   # GET /attempts/new
@@ -28,13 +29,12 @@ class AttemptsController < ApplicationController
     if user_signed_in?
       @attempt.user_id = current_user.id
     end
+    @attempt.save
     respond_to do |format|
       if @attempt.save
-        format.html { redirect_to @attempt, notice: 'Attempt was successfully created.' }
-        format.json { render :show, status: :created, location: @attempt }
+        format.js { render action: 'show', status: :created, location: @attempt }
       else
-        format.html { render :new }
-        format.json { render json: @attempt.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -73,4 +73,5 @@ class AttemptsController < ApplicationController
     def attempt_params
       params.require(:attempt).permit(:score)
     end
+
 end

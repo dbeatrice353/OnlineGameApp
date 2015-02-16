@@ -12,9 +12,9 @@
 	</thead>
 	<tbody>
         <tr>
-          <td><%= current_user.max_score %></td>
-          <td><%= current_user.mean_score %></td>
-          <td><%= current_user.attempt_count %></td>
+          <td id="bestScore"><%= current_user.max_score %></td>
+          <td id="averageScore"><%= current_user.mean_score %></td>
+          <td id="attempts"><%= current_user.attempt_count %></td>
         </tr>
 	</tbody>
 </table>

@@ -5,23 +5,29 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
 	<ul class="nav nav-tabs">
       	  <li><%= link_to "Wall Tennis", root_path %></li>
 		  <% if user_signed_in? %>
-		  	<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-
+		  	<li><%= link_to "Signed in as: " + current_user.user_name, edit_user_registration_path %></li>
+		  	<li class="nav nav-tabs navbar-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 		  <% else %>
 		  	<li><%= link_to "Sign Up", new_user_registration_path %></li>
 		  	<li><%= link_to "Sign In", new_user_session_path %></li>
 		  <% end %>
 	</ul>
-	<% if user_signed_in? %>
-		<p>Signed in as: <b><%= link_to current_user.user_name, edit_user_registration_path %></b></p>
-	<% end %>
-	<%= yield %>
+
 </div>
+<%= yield %>
 </body>
 </html>
