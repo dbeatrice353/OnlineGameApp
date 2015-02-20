@@ -258,10 +258,11 @@ function TennisRacket(){
 	}
 }
 //---------------------------------COLLISION-------------------------------------
+
 function wall_contact(obj,wall_x_boundry,wall_top,ground_level){
 	if(obj.position.x < ground_level &&
-	  obj.position.y + obj.radius > wall_top && 
-	  obj.position.x - obj.radius < wall_x_boundry){
+	   obj.position.y > wall_top && 
+	   obj.position.x - obj.radius < wall_x_boundry){
 		return 1;
 	} else {
 		return 0;
