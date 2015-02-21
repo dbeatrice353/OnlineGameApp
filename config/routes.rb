@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   
   root 'home#index'
   get 'current_user_stats(.:format)' => 'home#current_user_stats'
+  post  'attempts(.:format)' => 'attempts#create'
   devise_for :users
-  resources :attempts
-  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
