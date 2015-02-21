@@ -2,29 +2,38 @@
     <div class="container">
       <br>
       <div id="canvasContainer" class="center-block">
-          <canvas id = "mainCanvas" width="640" height="440"></canvas>
-      <div>
+            <canvas id = "mainCanvas" width="640" height="440"></canvas>
+      </div>
       <script>
         main();
       </script>
       <br>
-      <% if user_signed_in? %>
-        <%= render "current_player_stats" %>
-      <% end %>
-      <h4>Everyone's Stats</h4>
-      <table id="globalStatsTable" class="table table-bordered">
-        <thead>
-          <tr>
-            <td><b>Player</b></td>
-            <td><b>Best Score</b></td>
-            <td><b>Attempts</b></td>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-            <%= render "global_stats_row", :user => user %>
-          <% end %>
-        </tbody>
-      </table>
-    <div/>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Stats</h4>
+        </div>
+          <div class="panel-body">
+            <% if user_signed_in? %>
+              <%= render "current_player_stats" %>
+            <% end %>
+            <table id="globalStatsTable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <td><b>Player</b></td>
+                  <td><b>Best Score</b></td>
+                  <td><b>Attempts</b></td>
+                </tr>
+              </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <%= render "global_stats_row", :user => user %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
