@@ -37,12 +37,13 @@
     </div>
   </div>
  </nav>
-<%= yield %>
-<div class="footer">
-  <div class="container">
-    <p class="text-muted text-center"><%=link_to "View Source Code","https://github.com/dbeatrice353/OnlineGameApp" %></p>
-	</p>
+  <div id="content">
+    <%= yield %>
   </div>
-</div>
+  <div class="footer">
+    <div class="container">
+      <p class="text-muted text-center"><%=link_to "View Source Code","https://github.com/dbeatrice353/OnlineGameApp" %></p>
+    </div>
+  </div>
 </body>
 </html>
